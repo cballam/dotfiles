@@ -1,0 +1,20 @@
+# ~/.config/starship.toml
+
+# no newline
+add_newline = false
+
+# change the prompt character
+[character]
+symbol = "🏃"
+#"🌊"
+error_symbol = "✗"
+
+# directory prompt
+[directory]
+prefix = "dir "
+style = "bold cyan"
+
+# username module
+#[username]
+#show_always = true
+#style_user = "bright-cyan"
