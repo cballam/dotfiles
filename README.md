@@ -12,3 +12,11 @@
 ## Extras:
 
 Fonts I've installed are included in .local/share/fonts. These are used in the polybar/alacritty configs
+
+## Screenshot:
+
+<p align="center">
+  <img width="1000"
+       alt="Screenshot of current desktop environment"
+       src="https://raw.githubusercontent.com/cballam/dotfiles/master/desktop_screenshot.png"
+</p>
