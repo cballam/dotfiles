@@ -30,8 +30,8 @@ noremap j h
 " start subsection with Ctrl-s
 " save with Ctrl-Shift-s
 " start a list with Ctrl-l???
-inoremap <C-b> <Esc>bi\textbf{<Esc>ea}
-inoremap <C-i> <Esc>bi\textit{<Esc>ea}
-inoremap <C-s> \subsection{}<Esc>i
-inoremap <C-S> <Esc>:w<CR>i
+"inoremap <C-b> <Esc>bi\textbf{<Esc>ea}
+"inoremap <C-i> <Esc>bi\textit{<Esc>ea}
+"inoremap <C-s> \subsection{}<Esc>i
+"inoremap <C-S> <Esc>:w<CR>i
 

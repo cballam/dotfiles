@@ -1,0 +1,6 @@
+#!/bin/env sh
+$(pgrep redshift)
+do
+        pkill rs
+done
+redshift -l -27.470125:153.021072

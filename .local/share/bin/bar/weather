@@ -1,0 +1,1 @@
+ curl -s wttr.in/Brisbane?format="%c+%t+%h+%p" | awk '{print $1, $2 " 💦 " $3 " 🌧️ tot " $4}'

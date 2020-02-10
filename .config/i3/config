@@ -216,7 +216,9 @@ bindsym $mod+r mode "resize"
 # Start polybar instead
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec_always --no-startup-id nitrogen --restore
+exec_always --no-startup-id $HOME/.local/share/bin/redshift
+
+exec_always --no-startup-id redshift -l -27.470125:153.021072
 
 #exec compton
 #exec_always --no-startup-id compton -b
