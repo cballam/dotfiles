@@ -153,8 +153,8 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-overline= ${colors.primary}
-label-focused-underline= ${colors.primary}
+;label-focused-overline= ${colors.primary}
+;label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -164,8 +164,8 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-overline = ${self.label-focused-overline}
-label-visible-underline = ${self.label-focused-underline}
+;label-visible-overline = ${self.label-focused-overline}
+;label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -174,7 +174,7 @@ label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
 ; Separator in between workspaces
-; label-separator = |
+label-separator = |
 
 
 [module/mpd]
@@ -281,7 +281,7 @@ time-alt = %H:%M:%S
 
 format-prefix = "⌚ "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
+;format-underline = ${colors.primary}
 
 label = %date% %time%
 
@@ -395,7 +395,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 interval = 600
 exec = $HOME/.local/share/bin/bar/weather
-format-underline = ${colors.primary} 
+;format-underline = ${colors.primary} 
 ;#0a6cf5
 
 [settings]

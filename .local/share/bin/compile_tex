@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+for p in $(pgrep compile_tex)
+do
+	pkill -SIGTERM p
+done
+
+ls ~/latex/*.tex | entr pdflatex /_

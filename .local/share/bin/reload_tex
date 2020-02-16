@@ -1,0 +1,1 @@
+ls ~/latex/*.pdf | entr pkill -HUP mupdf

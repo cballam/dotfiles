@@ -214,3 +214,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec_always --no-startup-id $HOME/.local/share/bin/redshift
 
+exec_always --no-startup-id $HOME/.local/share/bin/reload_tex
+
+exec_always --no-startup-id $HOME/.local/share/bin/compile_tex

@@ -1,6 +1,6 @@
 #!/bin/env sh
-$(pgrep redshift)
+for rs in $(pgrep redshift)
 do
         pkill rs
 done
-redshift -l -27.470125:153.021072
+redshift -l -27.470125:153.021072 -t 6500:4000
