@@ -20,6 +20,8 @@ gaps outer 10
 
 exec_always --no-startup-id compton --config ~/.config/compton/compton.conf -b
 
+exec_always --no-startup-id $HOME/.local/share/bin/redshift
+
 exec_always --no-startup-id nitrogen --restore
 
 set $mod Mod4
@@ -211,8 +213,6 @@ bindsym $mod+r mode "resize"
 
 # Start polybar instead
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-exec_always --no-startup-id $HOME/.local/share/bin/redshift
 
 exec_always --no-startup-id $HOME/.local/share/bin/reload_tex
 
