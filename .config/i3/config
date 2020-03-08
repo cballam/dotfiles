@@ -128,7 +128,6 @@ bindsym $mod+Shift+s gaps inner current minus 5
 # force windows to typical
 bindsym $mod+f gaps inner all set 15; gaps outer all set 15
 
-
 # bind the window resizing instead of resize mode
 bindsym $mod+Ctrl+j resize shrink width 10 px or 10 ppt
 bindsym $mod+Ctrl+semicolon resize grow width 10 px or 10 ppt
@@ -137,6 +136,9 @@ bindsym $mod+Ctrl+l resize grow height 10 px or 10 ppt
 
 # screenshot (scrot)
 bindsym $mod+Ctrl+p exec "scrot '%Y-%m-%d_%H_%M_%S_$wx$h.png' -e 'mv $f ~/Pictures/'"
+
+# push current selection to a latex bib file
+bindsym $mod+b exec "~/.local/share/bin/to_bib"
 
 
 ###
