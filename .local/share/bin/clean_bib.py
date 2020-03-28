@@ -1,0 +1,29 @@
+import re
+with open("/home/cole/thesis.bib", 'r') as bib:
+    b = bib.read()
+
+author_year_list = []
+for line in b.split('\n'):
+    l = {}
+    line = line[line.find('{')+1:-2]
+    val = line.split(",")
+    print(val)
+    print("\n\n\n")
+    for v in val:
+        if "=" in v:
+            name_val = v.strip().split("=")
+            l[name_val[0].strip()] = re.sub('[{}]', '', name_val[1])
+    if l.get('author') is not None:
+        ay = l.get("author") + l.get("year")
+        print(f"AuthorYear: {ay}")
+        author_year_list.append(ay)
+
+with open("/home/cole/thesiscopy.bib", "w") as bib:
+    count = len(b.split('\n'))
+    print(f"count: {count}")
+    for line in b.split('\n'):
+        if line is not "":
+            newl = re.sub("{ a", "{" + author_year_list.pop(0) + ",\n\t a", line, count = 1) + "\n\n"
+            newl = re.sub("},", "},\n\t", newl)
+
+            bib.write(newl)
