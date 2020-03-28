@@ -6,6 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,6 +25,15 @@ noremap ; l
 noremap l k
 noremap k j
 noremap j h
+
+" remap ctrl-(movekey) to swap between windows
+nnoremap <C-j> <c-w>h
+nnoremap <C-k> <c-w>j
+nnoremap <C-l> <c-w>k
+nnoremap <C-;> <c-w>l
+
+
+cnoremap w w!
 
 " latex bindings: 
 " bold/italic via Ctrl-(b/i) similar to word. 
