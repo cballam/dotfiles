@@ -26,13 +26,6 @@ noremap l k
 noremap k j
 noremap j h
 
-" remap ctrl-(movekey) to swap between windows
-nnoremap <C-j> <c-w>h
-nnoremap <C-k> <c-w>j
-nnoremap <C-l> <c-w>k
-nnoremap <C-;> <c-w>l
-
-
 cnoremap w w!
 
 " latex bindings: 
@@ -44,4 +37,6 @@ cnoremap w w!
 "inoremap <C-i> <Esc>bi\textit{<Esc>ea}
 "inoremap <C-s> \subsection{}<Esc>i
 "inoremap <C-S> <Esc>:w<CR>i
-
+" Below remap causes backslash+c to insert the current copied X11 buffer.
+" Could be cleaner but it works
+inoremap /c \autocite{<Esc>:set paste<CR>"+p<Esc>:set nopaste<CR>i<BS><Esc>A}
