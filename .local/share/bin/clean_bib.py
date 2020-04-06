@@ -1,35 +1,40 @@
 import re
+import string
+
+printable = set(string.printable)
+
 with open("/home/cole/thesis.bib", 'r') as bib:
     b = bib.read()
 
-# all this does is make a list of strings.
-# those strings are in the format AuthorYear, and are used in latex citation (\autocite{AuthorYear})
+# make a nice list of AuthorYear to use to cite sources from
 author_year_list = []
 for line in b.split('\n'):
     l = {}
+    # split the line starting at the first instance of { - so after @(citation source) and until the final }
     line = line[line.find('{')+1:-2]
     val = line.split(",")
+    # for every single line with a variable (eg comma at end) in the raw line
     for v in val:
+        # if it's actually a variable
         if "=" in v:
-            # add each entry to dict, similar to parsing json but not quite close enough 
+            # make a list of [variable, value]
             name_val = v.strip().split("=")
-            l[name_val[0].strip()] = re.sub('[{}]', '', name_val[1])
-    # if there's an author, get the first name that appears (a last name) and the year (20xx) and add together to list
+            # remove any character that LaTeX has issues parsing from the value
+            val = ''.join(filter(lambda c: c in printable, name_val[1]))
+            # set the variable to equal the value in the dictionary
+            l[name_val[0].strip()] = re.sub('[{}]', '', val)
+    # if there's an author, add a string to the list in the format AuthorYear
     if l.get('author') is not None:
         ay = l.get("author") + l.get("year")
         author_year_list.append(ay)
 
-# this is used to write a nicer, formatted version of thesis.bib
-# also the AuthorYear is added to this new copy for citation
+# push all these new values of AuthorYear in to a new bibliography file to parse in an easy way
 with open("/home/cole/thesiscopy.bib", "w") as bib:
     count = len(b.split('\n'))
-    print(f"count: {count}")
     for line in b.split('\n'):
         if line is not "":
-            # insert the AuthorYear for this entry right before the author list
+            # regex magic
             newl = re.sub("{ a", "{" + author_year_list.pop(0) + ",\n\t a", line, count = 1) + "\n\n"
-            # after each list is finished, write a newline and tab to format
             newl = re.sub("},", "},\n\t", newl)
-            # don't include the url. in my case citations were from scopus.com and the url was just their site
-            newl = re.sub("\n.*url=.*\n", "\n", newl)
+            newl = re.sub("\t.*url=.*,\n", '', newl)
             bib.write(newl)
