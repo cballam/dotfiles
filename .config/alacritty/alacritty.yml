@@ -142,10 +142,10 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: monospace
+    family: undefined 
 
     # The `style` can be specified to pick a specific face.
-    style: Bold Italic
+    style: Bold 
 
   # Point size
   size: 11.0
@@ -240,12 +240,40 @@ font:
 #    cyan:    '0x95c4ce'
 #    white:   '0xd2d4de'
 
-# New messy vaporwave style
+# Colors (spacerice-ish)
 colors:
-  # Default colors
-  primary:
-   background: '#423F43' #'#4F3858' # background of the shell screen - first is grey, second is purple (ish)
-   foreground: '#EDDADF' # this is the text typical color
+   # Default colors
+   primary:
+     background: '#232d33'
+     foreground: '#DDDDDD'
+
+   # Normal colors
+   normal:
+     black:   '#01010B'
+     red:     '#891E32'
+     green:   '#587C18'
+     yellow:  '#DBC551'
+     blue:    '#2B2B4D'
+     magenta: '#9551A1'
+     cyan:    '#46829C'
+     white:   '#E7D6E1'
+
+   # Bright colors
+   bright:
+     black:   '#34343C'
+     red:     '#A14B5B'
+     green:   '#6DAE92'
+     yellow:  '#E2D174'
+     blue:    '#555571'
+     magenta: '#AA74B4'
+     cyan:    '#6B9BB0'
+     white:   '#F3EAF0'
+# New messy vaporwave style
+#colors:
+#  # Default colors
+#  primary:
+#   background: '#423F43' #'#4F3858' # background of the shell screen - first is grey, second is purple (ish)
+#   foreground: '#EDDADF' # this is the text typical color
 
     # Bright and dim foreground colors
     #
@@ -274,13 +302,13 @@ colors:
 
   # Normal colors
 
-   red:     '#BE5170'
-   green:   '#59D2AE'
-   yellow:  '#FBD536'  #'#CCCE99'
-   blue:    '#548DF3'
-   magenta: '#674F94'
-   cyan:    '#61D9A7'
-   white:   '#FCEAF8' #'#EDDADF' # first a bit pink, second more white
+     #   red:     '#BE5170'
+     #   green:   '#59D2AE'
+     #   yellow:  '#FBD536'  #'#CCCE99'
+     #   blue:    '#548DF3'
+     #   magenta: '#674F94'
+     #   cyan:    '#61D9A7'
+     #   white:   '#FCEAF8' #'#EDDADF' # first a bit pink, second more white
 
   # Bright colors
   #bright:
@@ -347,7 +375,8 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 0.9
+#0.8
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
