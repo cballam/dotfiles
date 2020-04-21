@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+let mapleader=' '
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -26,6 +27,12 @@ noremap l k
 noremap k j
 noremap j h
 
+" super nice remap to move splits via <leader>(movekey)
+nnoremap <leader>j <C-w>h
+nnoremap <leader>k <C-w>j 
+nnoremap <leader>l <C-w>k 
+nnoremap <leader>; <C-w>l 
+
 cnoremap w w!
 
 " latex bindings: 
@@ -40,3 +47,5 @@ cnoremap w w!
 " Below remap causes backslash+c to insert the current copied X11 buffer.
 " Could be cleaner but it works
 inoremap /c \autocite{<Esc>:set paste<CR>"+p<Esc>:set nopaste<CR>i<BS><Esc>A}
+
+
