@@ -211,64 +211,152 @@ font:
 #     cyan:    '0x8FBCBB'
 #     white:   '0xECEFF4'
 
-# Colors (Iceberg)
-#colors:
-#  # Default colors
-#  primary:
-#    background: '0x161821'
-#    foreground: '0xd2d4de'
-#
-#  # Normal colors
-#  normal:
-#    black:   '0x161821'
-#    red:     '0xe27878'
-#    green:   '0xb4be82'
-#    yellow:  '0xe2a478'
-#    blue:    '0x84a0c6'
-#    magenta: '0xa093c7'
-#    cyan:    '0x89b8c2'
-#    white:   '0xc6c8d1'
-#
-#  # Bright colors
-#  bright:
-#    black:   '0x6b7089'
-#    red:     '0xe98989'
-#    green:   '0xc0ca8e'
-#    yellow:  '0xe9b189'
-#    blue:    '0x91acd1'
-#    magenta: '0xada0d3'
-#    cyan:    '0x95c4ce'
-#    white:   '0xd2d4de'
+  #  # Colors (Iceberg)
+  #colors:
+  #  # Default colors
+  #  primary:
+  #    background: '0x161821'
+  #    foreground: '0xd2d4de'
+  #
+  #  # Normal colors
+  #  normal:
+  #    black:   '0x161821'
+  #    red:     '0xe27878'
+  #    green:   '0xb4be82'
+  #    yellow:  '0xe2a478'
+  #    blue:    '0x84a0c6'
+  #    magenta: '0xa093c7'
+  #    cyan:    '0x89b8c2'
+  #    white:   '0xc6c8d1'
+  #
+  #  # Bright colors
+  #  bright:
+  #    black:   '0x6b7089'
+  #    red:     '0xe98989'
+  #    green:   '0xc0ca8e'
+  #    yellow:  '0xe9b189'
+  #    blue:    '0x91acd1'
+  #    magenta: '0xada0d3'
+  #    cyan:    '0x95c4ce'
+  #    white:   '0xd2d4de'
 
-# Colors (spacerice-ish)
+# Colors (spacey)
+# Need to set background=dark in nvim
+#colors:
+#   # Default colors
+#   primary:
+#     background: '#232d33' # obvious
+#     foreground: '#DDDDDD' # majority of typed stuff in python/latex etc. variable.field or lib.method etc
+#
+#   # Normal colors
+#   normal:
+#     black:   '#01010B'
+#     red:     '#891E32'
+#     green:   '#587C18'
+#     yellow:  '#DBC551' 
+#     blue:    '#2B2B4D'
+#     magenta: '#9551A1'
+#     cyan:    '#46829C'
+#     white:   '#E7D6E1'
+#
+#   # Bright colors
+#   bright:
+#     black:   '#34343C'
+#     red:     '#A14B5B'
+#     green:   '#6DAE92' # executables in ls output.
+#     yellow:  '#E2D174' # line numbers in nvim. elif, for, etc. in python
+#     blue:    '#555571' # folders in ls output
+#     magenta: '#AA74B4' # most strings, things in quotes
+#     cyan:    '#6B9BB0' # most words in this file. comments, methods in python. trailing / and other Netrw comments
+#     white:   '#F3EAF0'
+
+# Colors (typewriter)
+# Need to set background=light in nvim when using this to compensate
 colors:
    # Default colors
    primary:
-     background: '#232d33'
-     foreground: '#DDDDDD'
+     background: '#f4e5d4' # trying for a papery look
+     foreground: '#282624' # charcoalish black
 
    # Normal colors
    normal:
-     black:   '#01010B'
-     red:     '#891E32'
-     green:   '#587C18'
-     yellow:  '#DBC551'
-     blue:    '#2B2B4D'
-     magenta: '#9551A1'
-     cyan:    '#46829C'
-     white:   '#E7D6E1'
+     black:   '#0c0804'
+     red:     '#591010'
+     green:   '#105914'
+     yellow:  '#898989'
+     blue:    '#21344f'
+     magenta: '#58228e'
+     cyan:    '#27555e'
+     white:   '#d0e4e8'
 
-   # Bright colors
    bright:
-     black:   '#34343C'
-     red:     '#A14B5B'
-     green:   '#6DAE92'
-     yellow:  '#E2D174'
-     blue:    '#555571'
-     magenta: '#AA74B4'
-     cyan:    '#6B9BB0'
-     white:   '#F3EAF0'
-# New messy vaporwave style
+     black:   '#0c0804'
+     red:     '#591010'
+     green:   '#105914'
+     yellow:  '#c9b628'
+     blue:    '#22418e'
+     magenta: '#58228e'
+     cyan:    '#868a9e'
+     white:   '#d0e4e8'
+     #   # Bright colors
+     #   bright:
+     #     black:   '#1d1e18'
+     #     red:     '#ff2828'
+     #     green:   '#57ff28'
+     #     yellow:  '#efe334'
+     #     blue:    '#72b8e0'
+     #     magenta: '#c872e0'
+     #     cyan:    '#72e0c3'
+     #     white:   '#ffffff'
+
+  #colors:
+  #  # Default colors
+  #  primary:
+  #    background: '#2c2c2c'
+  #    foreground: '#d6d6d6'
+  #
+  #    dim_foreground:    '#dbdbdb'
+  #    bright_foreground: '#d9d9d9'
+  #    dim_background:    '#202020' # not sure
+  #    bright_background: '#3a3a3a' # not sure
+  #
+  #  # Cursor colors
+  #  cursor:
+  #    text:   '#2c2c2c'
+  #    cursor: '#d9d9d9'
+  #
+  #  # Normal colors
+  #  normal:
+  #    black:   '#1c1c1c'
+  #    red:     '#bc5653'
+  #    green:   '#909d63'
+  #    yellow:  '#ebc17a'
+  #    blue:    '#7eaac7'
+  #    magenta: '#aa6292'
+  #    cyan:    '#86d3ce'
+  #    white:   '#cacaca'
+  #
+  #  # Bright colors
+  #  bright:
+  #    black:   '#636363'
+  #    red:     '#bc5653'
+  #    green:   '#909d63'
+  #    yellow:  '#ebc17a'
+  #    blue:    '#7eaac7'
+  #    magenta: '#aa6292'
+  #    cyan:    '#86d3ce'
+  #    white:   '#f7f7f7'
+  #
+  #  # Dim colors
+  #  dim:
+  #    black:   '#232323'
+  #    red:     '#74423f'
+  #    green:   '#5e6547'
+  #    yellow:  '#8b7653'
+  #    blue:    '#556b79'
+  #    magenta: '#6e4962'
+  #    cyan:    '#5c8482'
+  #    white:   '#828282'
 #colors:
 #  # Default colors
 #  primary:
@@ -375,7 +463,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
+#background_opacity: 0.9
 #0.8
 
 #selection:
