@@ -1,0 +1,2 @@
+pkill -SIGTERM redshift
+pkill -SIGTERM entr

@@ -242,62 +242,62 @@ font:
 
 # Colors (spacey)
 # Need to set background=dark in nvim
-#colors:
-#   # Default colors
-#   primary:
-#     background: '#232d33' # obvious
-#     foreground: '#DDDDDD' # majority of typed stuff in python/latex etc. variable.field or lib.method etc
-#
-#   # Normal colors
-#   normal:
-#     black:   '#01010B'
-#     red:     '#891E32'
-#     green:   '#587C18'
-#     yellow:  '#DBC551' 
-#     blue:    '#2B2B4D'
-#     magenta: '#9551A1'
-#     cyan:    '#46829C'
-#     white:   '#E7D6E1'
-#
-#   # Bright colors
-#   bright:
-#     black:   '#34343C'
-#     red:     '#A14B5B'
-#     green:   '#6DAE92' # executables in ls output.
-#     yellow:  '#E2D174' # line numbers in nvim. elif, for, etc. in python
-#     blue:    '#555571' # folders in ls output
-#     magenta: '#AA74B4' # most strings, things in quotes
-#     cyan:    '#6B9BB0' # most words in this file. comments, methods in python. trailing / and other Netrw comments
-#     white:   '#F3EAF0'
-
-# Colors (typewriter)
-# Need to set background=light in nvim when using this to compensate
 colors:
    # Default colors
    primary:
-     background: '#f4e5d4' # trying for a papery look
-     foreground: '#282624' # charcoalish black
+     background: '#232d33' # obvious
+     foreground: '#DDDDDD' # majority of typed stuff in python/latex etc. variable.field or lib.method etc
 
    # Normal colors
    normal:
-     black:   '#0c0804'
-     red:     '#591010'
-     green:   '#105914'
-     yellow:  '#898989'
-     blue:    '#21344f'
-     magenta: '#58228e'
-     cyan:    '#27555e'
-     white:   '#d0e4e8'
+     black:   '#01010B'
+     red:     '#891E32'
+     green:   '#587C18'
+     yellow:  '#DBC551' 
+     blue:    '#2B2B4D'
+     magenta: '#9551A1'
+     cyan:    '#46829C'
+     white:   '#E7D6E1'
 
+   # Bright colors
    bright:
-     black:   '#0c0804'
-     red:     '#591010'
-     green:   '#105914'
-     yellow:  '#c9b628'
-     blue:    '#22418e'
-     magenta: '#58228e'
-     cyan:    '#868a9e'
-     white:   '#d0e4e8'
+     black:   '#34343C'
+     red:     '#A14B5B'
+     green:   '#6DAE92' # executables in ls output.
+     yellow:  '#E2D174' # line numbers in nvim. elif, for, etc. in python
+     blue:    '#555571' # folders in ls output
+     magenta: '#AA74B4' # most strings, things in quotes
+     cyan:    '#6B9BB0' # most words in this file. comments, methods in python. trailing / and other Netrw comments
+     white:   '#F3EAF0'
+
+# Colors (typewriter)
+# Need to set background=light in nvim when using this to compensate
+#colors:
+#   # Default colors
+#   primary:
+#     background: '#f4e5d4' # trying for a papery look
+#     foreground: '#282624' # charcoalish black
+#
+#   # Normal colors
+#   normal:
+#     black:   '#0c0804'
+#     red:     '#591010'
+#     green:   '#105914'
+#     yellow:  '#898989'
+#     blue:    '#21344f'
+#     magenta: '#58228e'
+#     cyan:    '#27555e'
+#     white:   '#d0e4e8'
+#
+#   bright:
+#     black:   '#0c0804'
+#     red:     '#591010'
+#     green:   '#105914'
+#     yellow:  '#c9b628'
+#     blue:    '#22418e'
+#     magenta: '#58228e'
+#     cyan:    '#868a9e'
+#     white:   '#d0e4e8'
      #   # Bright colors
      #   bright:
      #     black:   '#1d1e18'

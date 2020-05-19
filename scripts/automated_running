@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# list of all associated desmume instances
+WINDOWS=$(xdotool search --class desmume)
+
+# keydown the Z key first (run)
+for win in $WINDOWS
+do
+	xdotool keydown --window $win z
+	xdotool keydown --window $win o
+done
+
+# this will handle SIGINT - ctrl-c - and keyup all possible keydowns in the program
+trap 'for win in $WINDOWS; do xdotool keyup --window $win 0x003b j z o; done; exit' 2
+
+# infinite loop - run left right until sigint
+while :
+do
+	for win in $WINDOWS
+	do
+		xdotool keyup --window $win 0x003b
+		xdotool keydown --window $win j
+	done
+	sleep 3
+	for win in $WINDOWS
+	do
+		xdotool keyup --window $win j
+		xdotool keydown --window $win 0x003b
+	done
+	sleep 3
+done
+
+##for win in $(xdotool search --pid 9195); do xdotool keydown --window $win k; sleep 1; done

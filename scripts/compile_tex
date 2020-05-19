@@ -1,0 +1,3 @@
+# pdflatex didn't like to be outside of the directory the file is being compiled to, for some reason
+cd ~/Documents/uni/egh400/thesis/
+ls thesis.tex | entr pdflatex /_

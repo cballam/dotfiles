@@ -1,6 +1,8 @@
 set nocompatible
 filetype off
 let mapleader=' '
+let g:solarized_termcolors=256
+set background=dark
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -15,12 +17,14 @@ filetype plugin indent on
 syntax on
 
 set relativenumber
-
 set visualbell
-
 set encoding=utf-8
+" the below settings cause splits to behave a little more normally
+set splitright
+set splitbelow
 
-let g:solarized_termcolors=256
+" *.tex treated as LaTeX instead of sometimes being considered plaintex
+let g:tex_flavor = "latex"
 
 noremap ; l
 noremap l k
@@ -40,12 +44,12 @@ cnoremap w w!
 " start subsection with Ctrl-s
 " save with Ctrl-Shift-s
 " start a list with Ctrl-l???
-"inoremap <C-b> <Esc>bi\textbf{<Esc>ea}
+" Note: below are repeated for tex and plaintex as neovim Filetype of .tex
+" appears to be inconsistent
+autocmd Filetype tex 	inoremap \bb <Esc>bi\textbf{<Esc>ea}
 "inoremap <C-i> <Esc>bi\textit{<Esc>ea}
-"inoremap <C-s> \subsection{}<Esc>i
-"inoremap <C-S> <Esc>:w<CR>i
-" Below remap causes backslash+c to insert the current copied X11 buffer.
+autocmd Filetype tex 	inoremap \ii <Esc>bi\textit{<Esc>ea}
+"inoremap <C-i> <Esc>bi\textit{<Esc>ea}
+" Below remap causes forward slash+cc to insert the current copied X11 buffer.
 " Could be cleaner but it works
-inoremap /c \autocite{<Esc>:set paste<CR>"+p<Esc>:set nopaste<CR>i<BS><Esc>A}
-
-
+autocmd Filetype tex 	inoremap \cc \autocite{<Esc>:set paste<CR>"+p<Esc>:set nopaste<CR>i<BS><Esc>A}

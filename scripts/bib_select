@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#cat ~/thesis.bib | dmenu -c -l 20
+# get a list of all titles of citations
+#grep "title=" ~/thesiscopy.bib | sed -e 's/.*{\(.*\)}.*/\1/'
+#
+## get a list of all citation inputs
+#grep "[a-z]{[A-Z]" ~/thesiscopy.bib | sed -e 's/.*{\(.*\),.*/\1/' | dmenu -c -l 20
+cat ~/dmenu_bib.txt | dmenu -l 20 -c | awk '{print $1}' | xsel -ib
