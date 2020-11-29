@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/cole/backgrounds/Yggdrasil by Gabriela Wasiewicz r imaginarylandscapes.jpg' '/home/cole/backgrounds/Between Fae and Forget by Justin L Dew r imaginarylandscapes.png'
