@@ -2,10 +2,6 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-alias vim=nvim
-alias vi=nvim
-
 alias vim=nvim
 alias vi=nvim
 
