@@ -1,0 +1,33 @@
+#! /bin/sh
+
+# autostart everything necessary to run GUI
+~/xrandr_settings
+pgrep -x sxhkd > /dev/null || sxhkd &
+compton --config ~/.config/compton/compton.conf -b &
+~/.fehbg &
+~/.local/share/bin/redshift &
+~/.config/polybar/launch.sh &
+~/scripts/bbu & 
+# have to back up brave on start every time now
+# also autostarting mpd
+mpd &
+
+
+bspc monitor DVI-D-0 -d 1 2 3 4 5 6 7 8
+bspc monitor HDMI-A-0 -d 9
+# not sure why, but left monitor currently has 1/2/3 desktops instead of 789 selectors
+
+bspc config border_width         2
+bspc config window_gap          12
+bspc config top_padding          32
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+bash /home/cole/.config/bspwm/bspwm_colors.sh &
