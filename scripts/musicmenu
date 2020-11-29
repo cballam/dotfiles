@@ -1,0 +1,9 @@
+#!/bin/bash
+
+MENU="$(rofi -sep "," -dmenu -i -p 'Music' -location 2 -yoffset 32 -width 10 -hide-scrollbar -line-padding 4 -padding 10 -lines 4 -theme smallmenu <<< ",,,Restore")"
+            case "$MENU" in
+                *) mpc -p 6610 toggle ;;
+                *) mpc -p 6610 next;;
+                *) mpc -p 6610 prev ;;
+		*Restore) alsactl restore;;
+            esac

@@ -1,0 +1,2 @@
+cp $HOME/.config/BraveSoftware/Brave-Browser/Default/Current* ~/scripts/bbu-sessions
+cp $HOME/.config/BraveSoftware/Brave-Browser/Default/Last* ~/scripts/bbu-sessions
