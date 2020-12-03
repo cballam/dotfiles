@@ -11,4 +11,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias python='python3'
 
-alias e='vim $(fzf)'
+alias gdbgui='~/.local/bin/gdbgui'
+
+# quick edit. escapes spaces properly in file path
+e() {
+				vim "$PWD/$(fzf)"
+}
+

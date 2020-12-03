@@ -68,7 +68,8 @@ nnoremap <leader>; <C-w>l
 nnoremap <C-b> :Buffers<CR>
 nnoremap <C-g> :GFiles<CR>
 nnoremap <C-s> :Rg 
-nnoremap <C-f> :FZF 
+nnoremap <C-f> :FZF<CR>
+
 
 " latex bindings: 
 " bold/italic via Ctrl-(b/i) similar to word. 
