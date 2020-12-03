@@ -1,0 +1,91 @@
+@import "colors.rasi"
+
+#window {
+    background-color: rgba(255, 255, 255, 0.0);
+}
+
+#mainbox {
+    border:  0;
+    border-radius: 5;
+    padding: 10;
+    background-color: @background;
+}
+
+#textbox {
+    text-color: @foreground;
+}
+
+#listview {
+    padding: 5px;
+    columns: 1;
+    spacing: 3px;
+    dynamic: true;
+    layout: vertical;
+    background-color: transparent;
+}
+
+element {
+    margin: 5px;
+    padding: 3px;
+    border-radius: 3px;
+    orientation: vertical;
+}
+
+element-text {
+    horizontal-align:               0.5;
+}
+
+#element.normal.normal {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+
+#element.selected.normal {
+    background-color: @selected-background;
+    text-color:       @selected-foreground;
+    border-color: #d07ef2;
+}
+
+#element.alternate.normal {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+
+
+#inputbar {
+    spacing: 0;
+    text-color: @selected-background;
+    padding: 15px;
+    background-color: @selected-background;
+    border-radius: 15px;
+}
+
+#case-indicator {
+    spacing:    0;
+    text-color: @selected-foreground;
+    background-color: rgba(0,0,0,0);
+}
+
+#entry {
+    spacing:    5px;
+    text-color: @selected-foreground;
+    background-color: rgba(0,0,0,0);
+}
+
+#prompt {
+    spacing:    0;
+    text-color: @selected-foreground;
+    background-color: rgba(0,0,0,0);
+}
+
+#textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @selected-foreground;
+    background-color: rgba(0,0,0,0);
+}
+
+#inputbar {
+    children: [prompt,textbox-prompt-colon,entry,case-indicator];
+}
