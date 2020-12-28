@@ -134,6 +134,22 @@ gcd() {
     cd $(fd -H -t d \.git$ $HOME/ | fzf | xargs dirname)
 }
 
+# open a saved vim session (all in $HOME/sessions)
+vs() {
+    FILE=$(fd . $HOME/sessions | fzf)
+    if [ -n "$FILE" ]; then
+        vim -S $FILE
+    else
+        echo "No session chosen"
+    fi
+}
+
+# start postgres. might have to move to postgres user
+startpg () {
+    pg_ctl -D /var/lib/postgres/data start
+}
+
+export EDITOR=nvim
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border'
 
 PATH="/home/cole/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -141,4 +157,7 @@ PERL5LIB="/home/cole/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/cole/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/cole/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/cole/perl5"; export PERL_MM_OPT;
-#eval "$(starship init bash)"
+eval "$(starship init bash)"
+
+# Created by `userpath` on 2020-12-09 03:28:32
+export PATH="$PATH:/home/cole/.local/bin:/usr/local/go/bin"

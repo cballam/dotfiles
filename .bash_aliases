@@ -2,6 +2,7 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
 alias vim=nvim
 alias vi=nvim
 
@@ -11,10 +12,17 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias python='python3'
 
-alias gdbgui='~/.local/bin/gdbgui'
+alias tags='ctags -R --exclude=.git --exclude=node_modules --exclude=*.json'
+
+export BAT_THEME='ansi-dark'
 
 # quick edit. escapes spaces properly in file path
 e() {
-				vim "$PWD/$(fzf)"
+				FILE=$(fzf)
+				if [ -n "$FILE" ]; then
+					vim $PWD/$FILE
+				else
+					echo "No file chosen"
+				fi
 }
 
