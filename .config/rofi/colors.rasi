@@ -3,6 +3,6 @@
     selected-foreground:  rgba(255, 255, 255, 100%);
     
     background:           #1F1F1Fbb;  /* originally 1F1F1Fbb */
-    background-solid:     #1F1F1F; 
+    background-solid:     #354359;
     selected-background:  rgba(0, 0, 0, 60%);
 }

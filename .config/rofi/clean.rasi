@@ -8,17 +8,16 @@ configuration {
 @import "colors.rasi"
 
 #window {
-    width: 70%;
-    height: 70%;
+    width: 60%;
+    height: 60%;
     background-color: rgba(255, 255, 255, 0.0);
-    padding: 90px 120px;
 }
 
 #mainbox {
     border:  0;
-    border-radius: 5;
+    border-radius: 20;
     padding: 20;
-    background-color: @background;
+    background-color: @background-solid;
 }
 
 #textbox {
@@ -38,7 +37,7 @@ configuration {
 element {
     margin: 5px;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: 20px;
     orientation: vertical;
 }
 
