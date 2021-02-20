@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show drun -theme clean -monitor DVI-D-0
+	rofi -show drun -theme clean -monitor DisplayPort-2 -matching fuzzy
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -30,8 +30,11 @@ super + r
 super + shift + m
         ~/scripts/musicmenu
 
+super + n
+				~/scripts/notification_center.sh &
+
 super + shift + d
-        rofi -show drun -theme nicemenu -monitor DVI-D-0
+        rofi -show drun -theme nicemenu
 
 
 #

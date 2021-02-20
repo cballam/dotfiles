@@ -5,17 +5,16 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 compton --config ~/.config/compton/compton.conf -b &
 ~/.fehbg &
-~/.local/share/bin/redshift &
 ~/.config/polybar/launch.sh &
+~/scripts/redshift &
 ~/scripts/bbu & 
 # have to back up brave on start every time now
 # also autostarting mpd
 mpd &
 
-
-bspc monitor DVI-D-0 -d 1 2 3 4 5 6 7 8
-bspc monitor HDMI-A-0 -d 9
-# not sure why, but left monitor currently has 1/2/3 desktops instead of 789 selectors
+bspc monitor HDMI-A-0 -d 0
+bspc monitor DisplayPort-2 -d 1 2 3 4 5 6 7 8 9
+# not sure why, but HDMI-A-0 now only accessed by key 9...
 
 bspc config border_width         2
 bspc config window_gap          12
