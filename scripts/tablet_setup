@@ -1,0 +1,8 @@
+MONITOR="DisplayPort-2"
+PAD_SETUP="UGTABLET 10 inch PenTablet Pen (0)"
+
+STYLUS=$(xinput | grep "$PAD_SETUP" | cut -f 2 | sed 's/id=//g')
+
+xinput -map-to-output $STYLUS $MONITOR
+
+notify-send "Mapped Stylus"
