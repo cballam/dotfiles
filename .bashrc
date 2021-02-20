@@ -134,15 +134,31 @@ gcd() {
     cd $(fd -H -t d \.git$ $HOME/ | fzf | xargs dirname)
 }
 
-# open a saved vim session (all in $HOME/sessions)
+# open a saved vim session if one exists in dir or otherwise from $HOME/sessions (all in $HOME/sessions)
 vs() {
-    FILE=$(fd . $HOME/sessions | fzf)
-    if [ -n "$FILE" ]; then
-        vim -S $FILE
+    if [ -f $PWD/Session.vim ]; then
+        vim -S
     else
-        echo "No session chosen"
+        FILE=$(fd . $HOME/sessions | fzf)
+        echo $FILE
+        if [ -n "$FILE" ]; then
+            vim -S $FILE
+        else
+            echo "No session chosen"
+        fi
     fi
 }
+
+# go to projects
+p() {
+    DIR=$(fd -a -d 1 . '/home/cole/Documents/projects' | fzf)
+    if [ -n "$DIR" ]; then
+        cd $DIR
+    else
+        echo "No directory chosen"
+    fi
+}
+
 
 # start postgres. might have to move to postgres user
 startpg () {
