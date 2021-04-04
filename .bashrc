@@ -134,6 +134,11 @@ gcd() {
     cd $(fd -H -t d \.git$ $HOME/ | fzf | xargs dirname)
 }
 
+pdf() {
+    FILE=$(fzf)
+    zathura "$FILE"
+}
+
 # open a saved vim session if one exists in dir or otherwise from $HOME/sessions (all in $HOME/sessions)
 vs() {
     if [ -f $PWD/Session.vim ]; then
@@ -166,7 +171,6 @@ startpg () {
 }
 
 export EDITOR=nvim
-export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border'
 
 PATH="/home/cole/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/cole/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -177,3 +181,24 @@ eval "$(starship init bash)"
 
 # Created by `userpath` on 2020-12-09 03:28:32
 export PATH="$PATH:/home/cole/.local/bin:/usr/local/go/bin"
+
+# include anaconda bin, as it for some reason doesn't do this by default
+#export PATH="$PATH:/opt/anaconda/bin"
+
+# conda messes with fzf settings, and I am not sure why.
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --color=dark'

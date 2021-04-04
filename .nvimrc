@@ -89,6 +89,10 @@ nnoremap <leader>j <C-w>h
 nnoremap <leader>k <C-w>j 
 nnoremap <leader>l <C-w>k 
 nnoremap <leader>; <C-w>l 
+tnoremap <leader>j <C-\><C-N><C-w>h
+tnoremap <leader>k <C-\><C-N><C-w>j 
+tnoremap <leader>l <C-\><C-N><C-w>k 
+tnoremap <leader>; <C-\><C-N><C-w>l 
 
 command! -bang -nargs=? -complete=dir GFiles
     \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
@@ -99,6 +103,9 @@ command! -bang -nargs=? -complete=dir LocalGFiles
 command! -bang -nargs=? -complete=dir Buffers
     \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({'options': ['--info=inline']}), <bang>0)
 
+" Fun fancy terminal remapping
+nnoremap <leader>ot :sp<CR>:resize 10<CR>:term<CR>
+tnoremap <F1> <C-\><C-n>
 
 " Comfy fzf keybindings
 nnoremap <C-b> :Buffers<CR>
