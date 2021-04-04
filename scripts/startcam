@@ -6,6 +6,6 @@ then
   pkill -f ffmpeg
   notify-send -u low "Killed Droidcam & adb/ffmpeg!"
 else
-  ~/scripts/droidcam &
+  /home/cole/scripts/droidcam &
   notify-send -u low "Started Droidcam!"
 fi

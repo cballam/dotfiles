@@ -22,7 +22,7 @@ super + c
 	~/.local/share/bin/bib_select
 
 super + x
-        ~/scripts/powermenu
+        alacritty -e bash -i -c annotate
 
 super + r
         ~/scripts/startcam
@@ -36,6 +36,12 @@ super + n
 super + shift + d
         rofi -show drun -theme nicemenu
 
+super + shift + t
+				~/scripts/tablet_setup &
+
+# note that with the below one as soon as the vim session is quit the terminal closes
+super + shift + w
+				alacritty -e bash -i -c write
 
 #
 # bspwm hotkeys

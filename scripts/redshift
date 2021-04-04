@@ -1,3 +1,6 @@
-#!/bin/env sh
-pkill redshift
-redshift -l -27.470125:153.021072 -t 6500:4000
+#!/bin/env bash
+if [ -n $(pgrep redshift) ] 
+then
+	pkill redshift
+fi
+redshift -l -27.470125:153.021072 -t 6000:4000 &

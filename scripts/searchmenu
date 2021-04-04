@@ -1,1 +1,1 @@
-rofi -show drun -theme nicemenu -location 1 -xoffset 10 -yoffset 32 -monitor DVI-D-0 &
+rofi -show drun -theme nicemenu -location 1 -xoffset $1 -yoffset 35 &

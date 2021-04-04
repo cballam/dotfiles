@@ -27,3 +27,33 @@ e() {
 				fi
 }
 
+write() {
+	#!/bin/bash
+	cd ~/Documents/masters/research_proposal
+	zathura *.pdf &
+	sleep 0.2
+	bspc node any.floating -t tiled
+	nvim -S
+	bspc node -c
+}
+
+annotate() {
+	PAD_SETUP="UGTABLET 10 inch PenTablet Pen (0)"
+	PAD_EXISTS=$(xinput | grep "$PAD_SETUP")
+	if [[ -z $PAD_EXISTS ]]; then
+		notify-send "No tablet!"
+	else
+		exec ~/scripts/tablet_setup &
+	fi
+	xournalpp &
+	notify-send "Taking notes"	
+}
+
+paper() {
+	PAPER=$(cd ~/Documents/masters/DB/ && fzf)
+	if [[ -n $PAPER ]]; then
+		zathura ~/Documents/masters/DB/"$PAPER" & disown
+	fi
+}
+
+alias rgf="rg -l"
