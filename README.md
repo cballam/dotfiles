@@ -2,17 +2,18 @@
 
 ## Programs that are configured here:
 
-- Terminal Emulator: Alacritty (alacritty.yaml)
-- Text Editor: Nvim (.nvimrc)
+- Terminal Emulator: Alacritty (.config/alacritty/alacritty.yaml)
+- Text Editor: Nvim (.config/nvim/init.lua)
 - Window Manager: bspwm (.config/bspwm)
 - Hotkey Daemon: sxhkd (.config/sxhkd)
-- Status Bar: polybar (polybar/config)
+- Status Bar: polybar (.config/polybar/config)
 - Compositor: compton (compton.conf)
 
 ## Extras:
 
 Included some nice scripts in the scripts directory that I use regularly (some used in sxhkd, polybar etc).
 There are also helpful aliases and functions in .bashrc and .bash_aliases like gcd (use fd/fzf to change to any directory with .git) and e (quickly edit file in vim using fzf prompt).
+My neovimrc (~/.nvimrc) includes tons of plugins, some of which need manual installation (CoC). Much of the configuration is meant to work with those plugins and there will likely be issues if they are not installed.
 Screenshot shows left/right screens with polybar running
 
 ## Screenshot:

@@ -1,0 +1,18 @@
+{
+	//"python.jediEnabled": false,
+	"coc.preferences.hoverTarget": "preview",
+	"coc.preferences.promptInput": true,
+	"coc.preferences.rootPatterns": [".git"],
+	"jedi.enable": true,
+  "jedi.startupMessage": true,
+  "jedi.markupKindPreferred": "plaintext",
+  "jedi.jediSettings.autoImportModules": [],
+  "jedi.executable.command": "jedi-language-server",
+  "jedi.executable.args": [],
+  "jedi.completion.disableSnippets": false,
+  "jedi.diagnostics.enable": true,
+  "jedi.diagnostics.didOpen": true,
+  "jedi.diagnostics.didChange": true,
+  "jedi.diagnostics.didSave": true,
+  "pyright.reportMissingImports": false
+}
