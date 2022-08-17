@@ -1,8 +1,8 @@
 set nocompatible
 filetype off
-let mapleader=' '
+"let mapleader=' '
 let g:solarized_termcolors=256
-set background=dark
+"set background=dark
 set path=.,**
 "set spell spelllang=en
 "set spellsuggest=best
@@ -12,7 +12,7 @@ hi PmenuSel     ctermfg=DarkGray          ctermbg=232         cterm=Bold
 hi PmenuSbar    ctermfg=247         ctermbg=233         cterm=Bold
 hi PmenuThumb   ctermfg=248         ctermbg=233         cterm=None
 " vanilla Vim
-set updatetime=300
+"set updatetime=300
 
 set hidden
 set cmdheight=2
@@ -22,6 +22,15 @@ set incsearch
 set inccommand=split
 "set wrap
 "set tw=80
+"
+lua << EOF
+vim.wo.number = true
+vim.o.updatetime = 250
+vim.g.mapleader = ' '
+vim.o.background = 'dark'
+vim.wo.relativenumber = true
+vim.o.visualbell = false
+EOF
 
 "set scl=no
 " Always show the signcolumn, otherwise it would shift the text each time
@@ -51,24 +60,94 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'neoclide/coc.nvim'
+"Plugin 'vim-airline/vim-airline'
+Plugin 'nvim-lualine/lualine.nvim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'antoinemadec/coc-fzf'
+"Plugin 'neoclide/coc.nvim'
+"Plugin 'antoinemadec/coc-fzf'
+"Plugin 'neoclide/coc-snippets'
 Plugin 'yuki-ycino/fzf-preview.vim'
-Plugin 'neoclide/coc-snippets'
+
+Plugin 'nvim-lua/plenary.nvim'
+"Plugin 'nvim-telescope/telescope.nvim'
+
+Plugin 'neovim/nvim-lspconfig'
+Plugin 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plugin 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+Plugin 'nvim-treesitter/nvim-treesitter'
+Plugin 'nvim-treesitter/playground'
+
+Plugin 'arcticicestudio/nord-vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'ap/vim-css-color'
 Plugin 'liuchengxu/vista.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'akinsho/nvim-bufferline.lua'
+Plugin 'kyazdani42/nvim-web-devicons'
+Plugin 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
+
+colorscheme PaperColor
+hi Normal guibg=None ctermbg=None
+"" LUA configs
+lua <<EOF
+require'lspconfig'.clangd.setup{
+                cmd = { "/usr/bin/clangd", "--background-index", "--completion-style=detailed", "--clang-tidy"  }
+            }
+require'lspconfig'.pyright.setup{
+  settings ={
+    python = {
+      venvPath = "/home/cole/.conda/envs/control",
+      }
+    }
+}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.rls.setup{}
+require'lspconfig'.tsserver.setup{}
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+}
+require("nvim-treesitter.install").prefer_git = true
+require'lualine'.setup()
+--local vim.g.coq_settings = {['auto_start'] : true | 'shut-up'}
+vim.g.coq_settings = { ["auto_start"] = true }
+EOF
+
+
+" lsp-config bindings
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
 filetype plugin indent on
 
-syntax on
+" Potentially use vim-latex - has nice movement in latex files
 
-set relativenumber
-set visualbell
+syntax on
+lua require'bufferline'.setup{}
+"lua require'telescope'.setup{}
+
+"set relativenumber
+"set visualbell
 set encoding=utf-8
 " the below settings cause splits to behave a little more normally
 set splitright
@@ -89,6 +168,10 @@ nnoremap <leader>j <C-w>h
 nnoremap <leader>k <C-w>j 
 nnoremap <leader>l <C-w>k 
 nnoremap <leader>; <C-w>l 
+nnoremap <leader>J <C-w>H
+nnoremap <leader>K <C-w>J 
+nnoremap <leader>L <C-w>K 
+nnoremap <leader>: <C-w>L
 tnoremap <leader>j <C-\><C-N><C-w>h
 tnoremap <leader>k <C-\><C-N><C-w>j 
 tnoremap <leader>l <C-\><C-N><C-w>k 
@@ -108,37 +191,47 @@ nnoremap <leader>ot :sp<CR>:resize 10<CR>:term<CR>
 tnoremap <F1> <C-\><C-n>
 
 " Comfy fzf keybindings
-nnoremap <C-b> :Buffers<CR>
-nnoremap <C-g> :GFiles<CR>
-nnoremap <C-f> :Files<CR>
-nnoremap <leader>g :CocCommand fzf-preview.GitStatus<CR>
-nnoremap <leader>t :Tags<CR>
-nnoremap <leader>b :BLines<CR>
+nnoremap <C-b> :lua require'telescope.builtin'.buffers{}<CR>
+nnoremap <C-g> :lua require'telescope.builtin'.git_files{}<CR>
+nnoremap <C-f> :lua require'telescope.builtin'.find_files{}<CR>
+"nnoremap <leader>g :CocCommand fzf-preview.GitStatus<CR>
+" nnoremap <leader>t :Tags<CR>
+nnoremap <leader>bt :lua require'telescope.builtin'.current_buffer_tags{}<cr>
+nnoremap <leader>t :lua require'telescope.builtin'.lsp_document_symbols{}<CR>
+
+nnoremap <leader>b :lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
 " 'Search File' to look for lines with word under cursor
-nnoremap <leader>sf yiw:BLines <C-r><C-w><CR>
+"nnoremap <leader>sf yiw:BLines <C-r><C-w><CR>
 
 " More comfy bindings:
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
 
 " Rg bindings:
 " In visual mode, use ctrl-s to yank the current word to a buffer and then use
 " Rg to search for that word. Might look at <cword> for this in the future
-nnoremap <C-s> :Rg 
-nnoremap <leader>s yiw:Rg <C-r><C-w><CR>
-vnoremap <C-s> <Esc>yiw:Rg <C-r><C-w><CR>
+"nnoremap <leader>s :Rg<CR> 
+nnoremap <C-s> yiw:Rg <C-r><C-w><CR>
+"vnoremap <C-s> <Esc>yiw:Rg <C-r><C-w><CR>
+
+nnoremap <leader>s :lua require'telescope.builtin'.live_grep{}<CR>
 
 " coc-fzf bindings
-nnoremap <silent> <leader>d :<C-u>CocFzfList diagnostics --current-buf<CR>
-" Basically show variables+functions. super useful
-nnoremap <silent> <leader>o :<C-u>CocFzfList outline --current-buf<CR> 
-" symbols, which is pretty cool
-inoremap <silent> <C-s> <C-c>:CocFzfList symbols<CR>
+""nnoremap <silent> <leader>d :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <leader>d :lua require'telescope.builtin'.diagnostics{}<CR>
+"" Basically show variables+functions. super useful
+"nnoremap <silent> <leader>o :<C-u>CocFzfList outline --current-buf<CR> 
+"" symbols, which is pretty cool
+"inoremap <silent> <C-s> <C-c>:CocFzfList symbols<CR>
 
 " fix the thing (if coc knows how)
 nmap <leader>fc <Plug>(coc-fix-current)
+
+
+" Telescope bindings
+:nnoremap <Leader>pp :lua require'telescope.builtin'.marks{}<CR>
 
 " latex bindings: 
 " bold/italic via Ctrl-(b/i) similar to word. 
@@ -157,12 +250,11 @@ autocmd Filetype tex 	inoremap \cc \autocite{<Esc>:set paste<CR>"+p<Esc>:set nop
 
 let g:fzf_layout = {'window': {'width': 0.8, 'height': 0.6}}
 
-" Use K to show documentation in preview window. From ChristianChiarulli nvim
-" configs
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" K uses keywordprg, so set this to default to pydocs in .py files
+autocmd BufNewFile,BufRead *.py set keywordprg=pydoc
 
 
 " Use <c-space> to trigger completion.
@@ -172,17 +264,8 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover', 'float')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-nnoremap <silent> <leader>K :set invsplitbelow<CR>:call CocAction('doHover', 'preview')<CR>:set invsplitbelow<CR>
+" How can I do this with vim lsp? Seems interesting and somewhat reasonable
+nnoremap <silent> <leader>od :set invsplitbelow<CR>:call CocAction('doHover', 'preview')<CR>:set invsplitbelow<CR>
 
 " Messy function to toggle vista coc sidebar
 function! VistaCoCToggle()
@@ -195,7 +278,7 @@ function! VistaCoCToggle()
 endfunction
 
 " open vista CoC instead of ctags
-nmap <F8> :call VistaCoCToggle()<CR>
+nmap <F8> :Vista!!<CR>
 
 " A bit of a mess from vimwiki: https://vim.fandom.com/wiki/Fuzzy_insert_mode_completion_(using_FZF)
 " Allows for FZF based completion of words

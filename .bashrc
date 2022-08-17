@@ -164,6 +164,7 @@ p() {
     fi
 }
 
+export PATH="$PATH:/home/cole/.local/share/nvim/lsp_servers/"
 
 # start postgres. might have to move to postgres user
 startpg () {
@@ -202,3 +203,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export FZF_DEFAULT_OPTS='--height 60% --layout=reverse --border --color=dark'
+. "$HOME/.cargo/env"
