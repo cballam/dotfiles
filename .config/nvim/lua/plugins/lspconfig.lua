@@ -15,4 +15,9 @@ nvim_lsp.pyright.setup{
 nvim_lsp.bashls.setup{}
 nvim_lsp.rls.setup{}
 nvim_lsp.tsserver.setup{}
+nvim_lsp.texlab.setup{
+   cmd = {"/home/cole/packages/texlab/target/release/texlab"}
+}
+
+local coq = require('coq')
 

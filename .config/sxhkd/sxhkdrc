@@ -6,9 +6,13 @@
 super + Return
 	alacritty
 
+# other terminal emulator
+super + alt + Return
+	st
+
 # program launcher
 super + d
-	rofi -show drun -theme clean -monitor DisplayPort-2 -matching fuzzy
+	rofi -show drun -theme clean -monitor DisplayPort-0 -matching fuzzy
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -36,7 +40,7 @@ super + n
 super + shift + d
         rofi -show drun -theme nicemenu
 
-super + shift + t
+super + alt + t
 				~/scripts/tablet_setup &
 
 # note that with the below one as soon as the vim session is quit the terminal closes

@@ -1,3 +1,6 @@
 require("plugins.plugins")
 require("plugins.telescope")
+--require("plugins.lspinstaller")
+require("plugins.mason")
 require("plugins.lspconfig")
+require("plugins.symbolsoutline")

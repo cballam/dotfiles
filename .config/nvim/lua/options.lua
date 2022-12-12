@@ -6,10 +6,12 @@ vim.o.hidden = true
 vim.o.title = true
 vim.o.fileencoding = 'utf-8'
 vim.o.filetype = 'off'
-vim.o.cmdheight = 2
+vim.o.cmdheight = 1
 vim.o.syntax = 'on'
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.relativenumber = true
+vim.o.clipboard = 'unnamedplus'
 
 -- Window options
 vim.wo.number = true
@@ -17,7 +19,7 @@ vim.wo.number = true
 -- Leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
---vim.g.coq_settings = {["auto-start"] = true}
+vim.g.coq_settings = {["auto_start"] = 'shut-up'}
 
 -- Colorscheme
 vim.cmd [[

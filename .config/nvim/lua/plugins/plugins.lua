@@ -47,8 +47,12 @@ return packer.startup(function(use)
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 
   -- LSP
+  use {"williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim"
+  }
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "sheerun/vim-polyglot"
+  use {"sheerun/vim-polyglot", commit='2c5af8f89d3e61e04e761c07a1f043b0f35203c6'} -- Has to hardcode to functional commit, vim9 additions screw up neovim
+  --use "williamboman/nvim-lsp-installer"
 
   -- Autocomplete + snippets
   use "ms-jpq/coq_nvim"
@@ -63,6 +67,9 @@ return packer.startup(function(use)
     run = ":TSUpdate",
   }
   use "nvim-treesitter/playground"
+
+  use "voldikss/vim-floaterm"
+  use "simrat39/symbols-outline.nvim"
 
   use "NLKNguyen/papercolor-theme"
 
